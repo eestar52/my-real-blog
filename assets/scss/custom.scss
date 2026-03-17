@@ -1,10 +1,18 @@
-/* 让页脚内容居中显示 */
-.footer {
-    text-align: center;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+/* 全局布局微调：让内容区稍微靠下一点，不那么挤 */
+.main-container {
+    padding-top: 40px;
 }
 
-/* 如果你想让它彻底消失，也可以用 display: none; *//*
-    You can add your own custom styles here.
-*/
+/* 页脚美化：居中、变小、变淡、增加间距 */
+.footer {
+    text-align: center;
+    margin: 80px auto 40px; /* 上边距留出足够空白，显得高级 */
+    font-size: 0.85rem;
+    color: #888; /* 颜色变淡一点，不抢戏 */
+    line-height: 1.8;
+}
+
+/* 让页脚的横线消失，或者变短居中 */
+.footer hr {
+    display: none; 
+}
