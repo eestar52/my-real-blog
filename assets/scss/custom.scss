@@ -1,3 +1,10 @@
-/*
+/* 让页脚内容居中显示 */
+.footer {
+    text-align: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+/* 如果你想让它彻底消失，也可以用 display: none; *//*
     You can add your own custom styles here.
 */
