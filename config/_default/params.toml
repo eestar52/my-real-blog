@@ -19,7 +19,7 @@ SortBy              = "default"
 [sidebar]
     emoji    = "🍥"
     subtitle = "个人心得|文艺病抒发地|技术学习."
-    avatar   = "me.png"
+    avatar   = "img/me.png"
 
 [article]
     headingAnchor = false
