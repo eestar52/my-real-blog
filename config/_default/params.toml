@@ -9,8 +9,8 @@ favicon = "img/favicon.png"
 SortBy              = "default"
 
 [footer]
-    since      = 2020
-    customText = ""
+    since      = 2026
+    customText = "他沉着地转过几条街"
 
 [dateFormat]
     published   = ":date_full"
