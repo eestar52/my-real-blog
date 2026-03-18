@@ -17,18 +17,22 @@
     display: none; 
 }
 
-/* 将文章封面图的比例强行改为 1:1 (正方形) */
-.article-list article .article-image img,
-.article-page .article-header .article-image img {
-    aspect-ratio: 1 / 1; /* 设置 1:1 比例 */
-    object-fit: cover;   /* 关键！保证图片不拉伸，裁剪中间部分 */
-    width: 100%;         /* 宽度占满 */
-    height: auto;        /* 高度自动 */
+/* --- 全局：将所有文章封面图强行改为 1:1 正方形 --- */
+
+/* 1. 首页列表 (Article List) - 保持你刚才看到的效果 */
+.article-list article .article-image img {
+    aspect-ratio: 1 / 1;
+    object-fit: cover; /* 保证裁剪中间部分，不拉伸 */
+    width: 100%;
 }
 
-/* 针对首页卡片样式的微调，让正方形看起来更协调 */
-.article-list article .article-image {
-    max-width: 300px; /* 限制在首页卡片上的最大宽度，防止太大 */
-    margin-left: auto;
-    margin-right: auto;
+/* 2. 文章详情页 (Article Page) - 点进去看到的页面 */
+.article-page .article-header .article-image img {
+    aspect-ratio: 1 / 1;
+    object-fit: cover; /* 关键！保证在详情页也是裁剪中间 */
+    width: auto;       /* 在详情页不占满全宽，避免太大 */
+    max-width: 400px;  /* 限制在详情页的最大宽度，显得精致 */
+    margin: 0 auto;    /* 居中显示 */
+    display: block;    /* 块级显示，方便居中 */
+    border-radius: 8px; /* 加一点圆角，更像一张相片 */
 }
