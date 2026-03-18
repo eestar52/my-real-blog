@@ -16,3 +16,19 @@
 .footer hr {
     display: none; 
 }
+
+/* 将文章封面图的比例强行改为 1:1 (正方形) */
+.article-list article .article-image img,
+.article-page .article-header .article-image img {
+    aspect-ratio: 1 / 1; /* 设置 1:1 比例 */
+    object-fit: cover;   /* 关键！保证图片不拉伸，裁剪中间部分 */
+    width: 100%;         /* 宽度占满 */
+    height: auto;        /* 高度自动 */
+}
+
+/* 针对首页卡片样式的微调，让正方形看起来更协调 */
+.article-list article .article-image {
+    max-width: 300px; /* 限制在首页卡片上的最大宽度，防止太大 */
+    margin-left: auto;
+    margin-right: auto;
+}
