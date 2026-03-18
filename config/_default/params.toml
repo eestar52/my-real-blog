@@ -49,8 +49,18 @@ SortBy              = "default"
 
 ## Comments
 [comments]
-    enabled  = true
-    provider = "disqus"
+    enabled = true
+    provider = "giscus" # 关键：告诉博客我们要用 giscus
 
-    # See all the available configurations at https://github.com/CaiJimmy/hugo-theme-stack/blob/master/config/_default/params.toml
-    # Copy the configurations you need from there and paste it here.
+[comments.giscus]
+    repo = "eestar52/my-real-blog"
+    repoId = "R_kgDORpfLfg"
+    category = "Announcements"
+    categoryId = "DIC_kwDORpfLfs4C4q2Y"
+    mapping = "pathname"
+    strict = 0
+    reactionsEnabled = 1
+    emitMetadata = 0
+    inputPosition = "top"
+    theme = "preferred_color_scheme"
+    lang = "zh-CN"
