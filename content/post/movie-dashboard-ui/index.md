@@ -15,6 +15,7 @@ categories: ["项目集 Portfolio"]
 
 > 采用墨刀进行组件化快速搭建，以“总-分”结构展示核心数据。
 
+**🔗 交互演示：** [点击此处在线预览 B 端监控大屏原型](https://modao.cc/proto/94myAV4tch1qn6iTenTmE/sharing?view_mode=read_only&screen=rbpUGQxlIwOyKJW3p #营业效能分析数据一张图大数据-分享)
 ![数据监控大屏原型图](dashboard-ui.png)
 
 ## 2. 界面布局与产品思考
