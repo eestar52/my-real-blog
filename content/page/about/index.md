@@ -1,5 +1,5 @@
 ---
-title: "关于我"
+title: "关于我/Resume"
 description: "衢州学院大数据科学与技术专业应届毕业生。 "
 date: 2026-03-26
 aliases:
