@@ -3,13 +3,13 @@ title: "关于我/Resume"
 description: "衢州学院大数据科学与技术专业应届毕业生。 "
 date: 2026-03-26
 aliases:
-    - /about/
-    - /resume/
+  - /about/
+  - /resume/
 menu:
-    main: 
-        weight: -50
-        params:
-            icon: user
+  main: 
+    weight: -50
+    params:
+      icon: user
 ---
 
 ## 基本信息
@@ -17,7 +17,6 @@ menu:
 * **求职意向**：数据产品助理 / 数据产品经理 (可随时在杭州到岗)
 * **技术主页**：[GitHub/eestar52](https://github.com/eestar52)
 
-  
 ### 🛠️ 专业技能
 * **擅长使用各种ai**：擅长**vibe coding**，喜欢使用各种ai来琢磨一些事情。
 * **数据分析与编程**：熟悉 **Python** 编程，能够使用基础语法进行逻辑开发；熟悉 SQL，能够进行结构化数据的查询与基础清洗。
@@ -68,5 +67,3 @@ menu:
 * **GitHub**：[eestar52](https://github.com/eestar52)
 * **Blog**：[xuanweijue.top](https://xuanweijue.top)
 ---
-
-
