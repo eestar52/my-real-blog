@@ -2,6 +2,7 @@
 title: "【数据底座】从业务逻辑到取数实战：电影推荐平台核心 SQL 解析"
 date: 2026-03-25T18:00:00+08:00
 draft: false
+weight: 4
 tags: ["SQL", "数据分析", "数据产品", "指标定义"]
 categories: ["项目集 Portfolio"]
 ---
