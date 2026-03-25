@@ -2,6 +2,7 @@
 title: "【原型设计】数据驱动：电影推荐平台的 B端监控大屏设计"
 date: 2026-03-25T16:00:00+08:00
 draft: false
+weight: 3
 tags: ["产品原型", "数据可视化", "B端产品", "墨刀"]
 categories: ["项目集 Portfolio"]
 ---
