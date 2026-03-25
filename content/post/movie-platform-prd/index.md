@@ -2,6 +2,7 @@
 title: "【产品PRD】智能电影数据分析与推荐平台需求文档"
 date: 2026-03-25T14:00:00+08:00
 draft: false
+weight: 1
 tags: ["数据产品", "PRD", "数据分析", "推荐系统"]
 categories: ["项目集 Portfolio"]
 ---
