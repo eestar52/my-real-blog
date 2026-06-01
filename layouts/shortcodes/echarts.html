@@ -3,21 +3,32 @@
 {{- $id := printf "echarts-%d" now.UnixNano -}}
 {{- $cdn := "https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js" -}}
 
-<!-- 检查是否已加载 ECharts，如果没有则动态加载 -->
 <script>
-    if (typeof echarts === 'undefined') {
-        var script = document.createElement('script');
-        script.src = '{{ $cdn }}';
-        script.onload = function() {
-            var myChart = echarts.init(document.getElementById('{{ $id }}'));
-            {{ .Inner | safeJS }}
-        };
-        document.head.appendChild(script);
+    function renderEcharts{{ $id }}() {
+        var dom = document.getElementById('{{ $id }}');
+        if (!dom) return;
+        var myChart = echarts.init(dom);
+        var option = {{ .Inner | safeJS }};
+        myChart.setOption(option);
+    }
+
+    function loadEChartsAndRender{{ $id }}() {
+        if (typeof echarts !== 'undefined') {
+            renderEcharts{{ $id }}();
+        } else {
+            var script = document.createElement('script');
+            script.src = '{{ $cdn }}';
+            script.onload = function() {
+                renderEcharts{{ $id }}();
+            };
+            document.head.appendChild(script);
+        }
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', loadEChartsAndRender{{ $id }});
     } else {
-        window.addEventListener('load', function() {
-            var myChart = echarts.init(document.getElementById('{{ $id }}'));
-            {{ .Inner | safeJS }}
-        });
+        loadEChartsAndRender{{ $id }}();
     }
 </script>
 <div id="{{ $id }}" style="width: {{ $width }}; height: {{ $height }};"></div>
