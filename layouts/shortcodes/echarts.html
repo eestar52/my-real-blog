@@ -1,0 +1,10 @@
+{{- $width := .Options.width | default "100%" -}}
+{{- $height := .Options.height | default "30rem" -}}
+{{- $id := printf "echarts-%d" now.UnixNano -}}
+<div id="{{ $id }}" style="width: {{ $width }}; height: {{ $height }};"></div>
+<script>
+    window.addEventListener("load", function () {
+        var myChart = echarts.init(document.getElementById('{{ $id }}'));
+        {{ .Inner | safeJS }}
+    });
+</script>
