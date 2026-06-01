@@ -1,35 +1,29 @@
 {{- $width := .Get "width" | default "100%" -}}
 {{- $height := .Get "height" | default "30rem" -}}
 {{- $id := printf "echarts-%d" now.UnixNano -}}
-{{- $funcSuffix := now.UnixNano -}}
 {{- $cdn := "https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js" -}}
 
 <script>
-    function renderEcharts_{{ $funcSuffix }}() {
-        var dom = document.getElementById('{{ $id }}');
-        if (!dom) return;
-        var myChart = echarts.init(dom);
-        var option = {{ .Inner | safeJS }};
-        myChart.setOption(option);
-    }
+(function() {
+    var containerId = '{{ $id }}';
+    var chartOption = {{ .Inner | safeJS }};
 
-    function loadEChartsAndRender_{{ $funcSuffix }}() {
-        if (typeof echarts !== 'undefined') {
-            renderEcharts_{{ $funcSuffix }}();
-        } else {
-            var script = document.createElement('script');
-            script.src = '{{ $cdn }}';
-            script.onload = function() {
-                renderEcharts_{{ $funcSuffix }}();
-            };
-            document.head.appendChild(script);
+    function renderEcharts() {
+        var dom = document.getElementById(containerId);
+        if (dom && typeof echarts !== 'undefined') {
+            var myChart = echarts.init(dom);
+            myChart.setOption(chartOption);
         }
     }
 
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', loadEChartsAndRender_{{ $funcSuffix }});
+    if (typeof echarts !== 'undefined') {
+        renderEcharts();
     } else {
-        loadEChartsAndRender_{{ $funcSuffix }}();
+        var script = document.createElement('script');
+        script.src = '{{ $cdn }}';
+        script.onload = renderEcharts;
+        document.head.appendChild(script);
     }
+})();
 </script>
 <div id="{{ $id }}" style="width: {{ $width }}; height: {{ $height }};"></div>
