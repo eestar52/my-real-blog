@@ -1,0 +1,8 @@
+<div id="echarts-{{ .Ordinal }}" style="width:100%;height:{{ default "400px" (.Get "height") }};"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.4.3/echarts.min.js"></script>
+<script>
+var chart = echarts.init(document.getElementById('echarts-{{ .Ordinal }}'));
+var option = {{ .Inner }};
+chart.setOption(option);
+window.addEventListener('resize', function(){ chart.resize(); });
+</script>
