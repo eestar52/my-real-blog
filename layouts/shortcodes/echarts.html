@@ -1,10 +1,11 @@
 {{- $width := .Get "width" | default "100%" -}}
 {{- $height := .Get "height" | default "30rem" -}}
 {{- $id := printf "echarts-%d" now.UnixNano -}}
+{{- $funcSuffix := now.UnixNano -}}
 {{- $cdn := "https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js" -}}
 
 <script>
-    function renderEcharts{{ $id }}() {
+    function renderEcharts_{{ $funcSuffix }}() {
         var dom = document.getElementById('{{ $id }}');
         if (!dom) return;
         var myChart = echarts.init(dom);
@@ -12,23 +13,23 @@
         myChart.setOption(option);
     }
 
-    function loadEChartsAndRender{{ $id }}() {
+    function loadEChartsAndRender_{{ $funcSuffix }}() {
         if (typeof echarts !== 'undefined') {
-            renderEcharts{{ $id }}();
+            renderEcharts_{{ $funcSuffix }}();
         } else {
             var script = document.createElement('script');
             script.src = '{{ $cdn }}';
             script.onload = function() {
-                renderEcharts{{ $id }}();
+                renderEcharts_{{ $funcSuffix }}();
             };
             document.head.appendChild(script);
         }
     }
 
     if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', loadEChartsAndRender{{ $id }});
+        document.addEventListener('DOMContentLoaded', loadEChartsAndRender_{{ $funcSuffix }});
     } else {
-        loadEChartsAndRender{{ $id }}();
+        loadEChartsAndRender_{{ $funcSuffix }}();
     }
 </script>
 <div id="{{ $id }}" style="width: {{ $width }}; height: {{ $height }};"></div>
