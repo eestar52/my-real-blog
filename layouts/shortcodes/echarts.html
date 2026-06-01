@@ -1,10 +1,23 @@
 {{- $width := .Options.width | default "100%" -}}
 {{- $height := .Options.height | default "30rem" -}}
 {{- $id := printf "echarts-%d" now.UnixNano -}}
-<div id="{{ $id }}" style="width: {{ $width }}; height: {{ $height }};"></div>
+{{- $cdn := "https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js" -}}
+
+<!-- 检查是否已加载 ECharts，如果没有则动态加载 -->
 <script>
-    window.addEventListener("load", function () {
-        var myChart = echarts.init(document.getElementById('{{ $id }}'));
-        {{ .Inner | safeJS }}
-    });
+    if (typeof echarts === 'undefined') {
+        var script = document.createElement('script');
+        script.src = '{{ $cdn }}';
+        script.onload = function() {
+            var myChart = echarts.init(document.getElementById('{{ $id }}'));
+            {{ .Inner | safeJS }}
+        };
+        document.head.appendChild(script);
+    } else {
+        window.addEventListener('load', function() {
+            var myChart = echarts.init(document.getElementById('{{ $id }}'));
+            {{ .Inner | safeJS }}
+        });
+    }
 </script>
+<div id="{{ $id }}" style="width: {{ $width }}; height: {{ $height }};"></div>
